@@ -28,7 +28,7 @@
 ---
 
 ## 🧠 4. Cyberbullying Detection Logic
-- [ ] Send extracted text to Perspective API in real-time
+- [ ] Send extracted text to DB and Perspective API in real-time
 - [ ] Compare score to defined thresholds (e.g., TOXICITY > 0.8)
 - [ ] Flag toxic content with warnings/visual cues
 - [ ] Blur or hide toxic content (optional)
