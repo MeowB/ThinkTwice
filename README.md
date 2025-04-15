@@ -1,54 +1,84 @@
-# React + TypeScript + Vite
+# 🧠 Cyberbullying Detection Chrome Extension – Development Workflow
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 📁 1. Project Setup
+- [ ] Create project folder and file structure
+- [ ] Set up `manifest.json` (Manifest V3)
+- [ ] Create `popup.html`, `popup.js`, and `popup.css`
+- [ ] Add basic icons for extension (icon16, icon48, icon128)
+- [ ] Create `content.js` (script injected into webpages)
+- [ ] (Optional) Create `background.js` for future background tasks
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🔌 2. Perspective API Integration
+- [ ] Sign up and get API key from [Perspective API](https://perspectiveapi.com/)
+- [ ] Write a utility to send text to Perspective API
+- [ ] Handle and parse API responses (e.g., TOXICITY, INSULT scores)
+- [ ] Test API with hardcoded examples
+- [ ] Implement error handling and rate limiting safeguards
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🌐 3. DOM Interaction
+- [ ] Use `content.js` to scan webpages for text input fields or comment sections
+- [ ] Target platforms like Twitter, Reddit, YouTube, etc.
+- [ ] Set up `MutationObserver` to detect dynamic content changes
+- [ ] Extract user-generated content for analysis
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+---
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🧠 4. Cyberbullying Detection Logic
+- [ ] Send extracted text to Perspective API in real-time
+- [ ] Compare score to defined thresholds (e.g., TOXICITY > 0.8)
+- [ ] Flag toxic content with warnings/visual cues
+- [ ] Blur or hide toxic content (optional)
+- [ ] Prevent users from submitting toxic messages (optional)
+- [ ] Offer alternative suggestions or positive reinforcement (stretch goal)
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+## 🧩 5. Extension UI (Popup)
+- [ ] Design a clean popup with title and status message
+- [ ] Add a toggle switch to enable/disable the extension
+- [ ] Add a dropdown to change sensitivity level
+- [ ] Display recent toxic comment flags (optional)
+
+---
+
+## 🗃 6. Local Storage & Settings
+- [ ] Use `chrome.storage.local` to store user preferences
+- [ ] Load and apply settings on content script load
+- [ ] Allow real-time changes through popup interface
+
+---
+
+## 🧪 7. Testing
+- [ ] Test on major platforms (Reddit, Twitter, YouTube, Facebook)
+- [ ] Test text with different levels of toxicity and slang
+- [ ] Test toggle and sensitivity changes
+- [ ] Handle unexpected inputs or non-English content gracefully
+
+---
+
+## 🎨 8. UI Polish & Optimization
+- [ ] Improve styling for popup and warnings (CSS)
+- [ ] Add animations or smooth transitions for alerts (optional)
+- [ ] Add branded icon/logo (if desired)
+- [ ] Minify and optimize files for production
+
+---
+
+## 🚀 9. Deployment
+- [ ] Create `README.md` with usage, installation, and credits
+- [ ] Create a short demo video or GIF (optional but recommended)
+- [ ] Package the extension as a ZIP
+- [ ] Submit to the [Chrome Web Store Developer Dashboard](https://chrome.google.com/webstore/devconsole/)
+- [ ] Respond to any required reviews or permission requests
+
+---
+
+## 🛠️ Optional Stretch Features
+- [ ] Dashboard for flagged content (parent/educator mode)
+- [ ] Sentiment trend graph in popup
+- [ ] Language support beyond English
+- [ ] Community-based reporting
