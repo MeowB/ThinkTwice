@@ -1,0 +1,25 @@
+{
+	"manifest_version": 3,
+	"name": "ThinkTwice",
+	"version": "1.0",
+	"description": "Prevent cyberbullying.",
+	"background": {
+	  "service_worker": "assets/background.js"
+	},
+	"content_scripts": [
+	  {
+		"matches": ["<all_urls>"],
+		"js": ["assets/content.js"]
+	  }
+	],
+	"permissions": ["storage"],
+	"action": {
+	  "default_popup": "index.html",
+	  "default_icon": {
+		"16": "icon.png",
+		"48": "icon.png",
+		"128": "icon.png"
+	  }
+	}
+  }
+  
