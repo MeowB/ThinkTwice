@@ -1,12 +1,34 @@
 
 ## Set up
 In ThinkTwice\app\back
+
+#### 1. Create a virtual environment inside the project folder:
+
 ```
-pip install fastapi
+python -m venv env
 ```
+
+#### 2.Activate the virtual environment:
+
+* On Windows (Git Bash):
 ```
-pip install uvicorn
+source env/Scripts/activate
 ```
+* On Windows (PowerShell):
+```
+.\env\Scripts\Activate
+```
+* On Linux/macOS:
+```
+source env/bin/activate
+```
+
+#### 3.Activate the virtual environment:
+```
+pip install -r requirements.txt
+```
+
+#### 4.Activate the virtual environment:
 ```
 uvicorn main:app --reload
 ```
