@@ -22,7 +22,7 @@ Returns the string `true`.
 
 **Response:**
 ```json
-`{"awnser" :"true"}`
+{"awnser" :"true"}
 ```
 
 
@@ -34,7 +34,7 @@ Returns the string `"false"`.
 
 **Response:**
 ```json
-`{"awnser" :"false"}`
+{"awnser" :"false"}
 ```
 
 ### 🎲 `GET /tof`
@@ -44,7 +44,7 @@ Randomly returns `"true"` or `"false"` with a 50/50 chance.
 
 **Response:**
 ```json
-`{"awnser" :"false"}`
+{"awnser" :"false"}
 ```
 
 
@@ -55,7 +55,7 @@ Returns a random float between ``0.0`` and ``1.0``, rounded to one decimal place
 
 **Response:**
 ```json
-`{"awnser" : "0.0"}`
+{"awnser" : "0.0"}
 ```
 
 
