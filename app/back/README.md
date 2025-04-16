@@ -81,5 +81,24 @@ Returns a random float between ``0.0`` and ``1.0``, rounded to one decimal place
 ```
 
 
+### 🔢 `GET/analyse`
+
+**Description:**  
+Get the value from perspective API from a given text
+
+**Parameters:**
+```json
+{  "text": "you text here"}
+```
+
+**Response:**
+```json
+{
+  "text": "the given text",
+  "toxicity_value": 0.85173553
+}
+```
+
+
 
 📌 Notes
