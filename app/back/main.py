@@ -1,8 +1,18 @@
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 import random
 
 
 app = FastAPI()
+
+
+app.add_middleware(
+	CORSMiddleware,
+	allow_origins=["*"],  # or ["chrome-extension://<your-extension-id>"]
+	allow_credentials=True,
+	allow_methods=["*"],
+	allow_headers=["*"],
+)
 
 items =[]
 
