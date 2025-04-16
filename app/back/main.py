@@ -1,7 +1,9 @@
+from pydantic import BaseModel
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 import random
-
+from googleapiclient import discovery
+import json
 
 app = FastAPI()
 
@@ -53,3 +55,41 @@ def get_randomFloat():
     anwser = random.random()
     anwser = round(anwser,1)
     return({"awnser" : anwser})
+
+class Text(BaseModel):
+    
+    text: str
+
+
+@app.post("/analyse")
+async def analyze_text(recivedObj: Text):
+
+    API_KEY = ''
+
+    client = discovery.build(
+    "commentanalyzer",
+    "v1alpha1",
+    developerKey= API_KEY,
+    discoveryServiceUrl="https://commentanalyzer.googleapis.com/$discovery/rest?version=v1alpha1",
+    static_discovery=False,
+    )
+    
+    analyze_request = {
+    'comment':  {'text': recivedObj.text} ,
+    'requestedAttributes': {'TOXICITY': {}}
+    }
+
+    response = client.comments().analyze(body=analyze_request).execute()
+
+    toxicity_value = response["attributeScores"]["TOXICITY"]["summaryScore"]["value"]
+
+    responseObj = {
+        'text' : recivedObj.text,
+        'toxicity_value' : toxicity_value
+    }
+    
+    return(responseObj)
+
+
+
+
