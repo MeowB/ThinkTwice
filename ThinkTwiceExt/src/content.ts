@@ -1,11 +1,13 @@
 import getReadableText from './functions/getReadableText'
-import highlightToxicLines from './functions/highlightToxicLines';
-// import testRouting from './functions/testRouting';
+// import highlightToxicLines from './functions/highlightToxicLines';
 import mockAnalyze from './functions/mockAnalysis';
+import sendTextToBackend from './functions/sendTextToBackend';
 import debounce from 'lodash/debounce'
 
 
 console.log('ThinkTwice Content Script Loaded');
+
+let toxicityValuesArray = <number[]>[]
 // wait for page loading on scroll
 function waitForElement(selector: string, callback: Function) {
 	const seen = new Set<HTMLElement>()
@@ -35,15 +37,18 @@ function waitForElement(selector: string, callback: Function) {
 waitForElement("article, section, main, p, h1, h2, h3, h4, h5, h6, li, blockquote span",async () => {
 	const readable = getReadableText();
 	if (readable.length > 0) {
-		let { results } = await mockAnalyze(readable)
-		highlightToxicLines(results)
+		let results = await sendTextToBackend(readable)
+		// highlightToxicLines(results)
+		toxicityValuesArray.push(results.toxicity_value)
 		console.log(results)
+		console.log("rounded value: ", (toxicityValuesArray.reduce((acc, curr) => acc + curr) / toxicityValuesArray.length))
 	}
 })
 
 // active field real time monitoring
 document.addEventListener('focusin', (e) => {
 	const el = e.target as HTMLElement
+	console.log('scanning input')
 
 	if (el.tagName === 'TEXTAREA' || (el.isContentEditable && !el.getAttribute('data-monitored'))) {
 		el.setAttribute('data-monitored', 'true');
