@@ -64,20 +64,24 @@ async def analyze_text(recivedObj: Text):
     static_discovery=False,
     )
     
-    analyze_request = {
-    'comment':  {'text': recivedObj.text} ,
-    'requestedAttributes': {'TOXICITY': {}}
-    }
-
+    try:
+        analyze_request = {
+        'comment':  {'text': recivedObj.text} ,
+        'requestedAttributes': {'TOXICITY': {}}
+        }
+    except:
+        return("An error occured with the given data")
     response = client.comments().analyze(body=analyze_request).execute()
 
-    toxicity_value = response["attributeScores"]["TOXICITY"]["summaryScore"]["value"]
+    try:
+        toxicity_value = response["attributeScores"]["TOXICITY"]["summaryScore"]["value"]
 
-    responseObj = {
-        'text' : recivedObj.text,
-        'toxicity_value' : toxicity_value
-    }
-    
+        responseObj = {
+            'text' : recivedObj.text,
+            'toxicity_value' : toxicity_value
+        }
+    except:
+        return("An error occured with Perspective API")
     return(responseObj)
 
 
