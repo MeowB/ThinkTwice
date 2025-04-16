@@ -26,6 +26,6 @@ export default function getReadableText() {
 		}
 	});
 
-	return textContent
+	return textContent.join('\n')
 }
 
