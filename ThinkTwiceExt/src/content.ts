@@ -1,9 +1,12 @@
 import getReadableText from './functions/getReadableText'
+import highlightToxicLines from './functions/highlightToxicLines';
+// import testRouting from './functions/testRouting';
+import mockAnalyze from './functions/mockAnalysis';
+import debounce from 'lodash/debounce'
 
 
 console.log('ThinkTwice Content Script Loaded');
-
-
+// wait for page loading on scroll
 function waitForElement(selector: string, callback: Function) {
 	const seen = new Set<HTMLElement>()
 
@@ -28,9 +31,35 @@ function waitForElement(selector: string, callback: Function) {
 	observer.observe(document.body, { childList: true, subtree: true })
 }
 
-waitForElement("article, section, main, p, h1, h2, h3, h4, h5, h6, li, blockquote span", () => {
+// highlight toxic content and query the backend for toxicity level
+waitForElement("article, section, main, p, h1, h2, h3, h4, h5, h6, li, blockquote span",async () => {
 	const readable = getReadableText();
 	if (readable.length > 0) {
-		console.log('text: ', readable);
+		let { results } = await mockAnalyze(readable)
+		highlightToxicLines(results)
+		console.log(results)
+	}
+})
+
+// active field real time monitoring
+document.addEventListener('focusin', (e) => {
+	const el = e.target as HTMLElement
+
+	if (el.tagName === 'TEXTAREA' || (el.isContentEditable && !el.getAttribute('data-monitored'))) {
+		el.setAttribute('data-monitored', 'true');
+
+		const inputHandler = debounce(async () => {
+			const text = (el as HTMLTextAreaElement).value || el.innerText
+			if (!text.trim()) return
+
+			const { results } = await mockAnalyze([text])
+			const isToxic = results[0].is_toxic
+
+			if(isToxic) {
+				console.log("text is toxic")
+			}
+		}, 700)
+
+		el.addEventListener('input', inputHandler)
 	}
 })
