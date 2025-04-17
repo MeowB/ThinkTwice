@@ -36,49 +36,6 @@ uvicorn main:app --reload
 
 ## 📘 Endpoints
 
----
-### ✅ `GET /true`
-
-**Description:**  
-Returns the string `true`.
-
-**Response:**
-```json
-{"awnser" :"true"}
-```
-
-
-
-### ❌ `GET /false`
-
-**Description:**  
-Returns the string `"false"`.
-
-**Response:**
-```json
-{"awnser" :"false"}
-```
-
-### 🎲 `GET /tof`
-
-**Description:**  
-Randomly returns `"true"` or `"false"` with a 50/50 chance.
-
-**Response:**
-```json
-{"awnser" :"false"}
-```
-
-
-### 🔢 `GET/note`
-
-**Description:**  
-Returns a random float between ``0.0`` and ``1.0``, rounded to one decimal place.
-
-**Response:**
-```json
-{"awnser" : "0.0"}
-```
 
 
 ### 🔢 `GET/analyse`
@@ -99,6 +56,24 @@ Get the value from perspective API from a given text
 }
 ```
 
+### 🔢 `GET/checkWord`
 
+**Description:**  
+Check if one of the words of a given text is in DB
+
+**Parameters:**
+```json
+{  "text": "you text here"}
+```
+
+**Response:**
+```json
+{
+  "toxic_words": [
+    "plouc",
+    "putois"
+  ]
+}
+```
 
 📌 Notes
