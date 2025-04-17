@@ -3,10 +3,10 @@ from routes.get_analyze.schemas import Text
 from dotenv import load_dotenv, dotenv_values 
 from typing import Annotated
 from routes.get_analyze.schemas import Text
-from database import engine,  metadata
 from sqlalchemy.orm import Session
 from sqlalchemy import create_engine, Table, select
-from database import get_db
+from database.database import metadata, get_db, engine
+import string
 
 router = APIRouter()
 
@@ -23,7 +23,10 @@ db_dependency = Annotated[Session, Depends(get_db)]
 @router.post("/checkWord")
 async def get_DBCheck(recivedObj : Text, db: db_dependency):
 
-    ListOfWords = recivedObj.text.split()
+
+    translator = str.maketrans('', '', string.punctuation)
+    clean_text = recivedObj.text.translate(translator)
+    ListOfWords = clean_text.split()
     responseObj = []
 
     for word in ListOfWords:
