@@ -1,36 +1,18 @@
-<table>
-    <thead>
+<p-table [value]="datas" [paginator]="true" [rows]="10">
+    <ng-template pTemplate="header">
         <tr>
-            <td>Word/Phrase</td>
-            <td>Toxicity index</td>
-            <td>URL</td>
-            <td>Date</td>
+            <th>Word/Phrase</th>
+            <th pSortableColumn="TI">Toxicity index<p-sortIcon field="TI"></p-sortIcon></th>
+            <th>URL</th>
+            <th pSortableColumn="DATE">Date<p-sortIcon field="DATE"></p-sortIcon></th>
         </tr>
-    </thead>
-    <tbody>
+    </ng-template>
+    <ng-template pTemplate="body" let-data>
         <tr>
-            <td>...</td>
-            <td>...</td>
-            <td>...</td>
-            <td>...</td>
+            <td>{{ data.WP }}</td>
+            <td>{{ data.TI }}</td>
+            <td>{{ data.URL }}</td>
+            <td>{{ data.DATE }}</td>
         </tr>
-        <tr>
-            <td>...</td>
-            <td>...</td>
-            <td>...</td>
-            <td>...</td>
-        </tr>
-        <tr>
-            <td>...</td>
-            <td>...</td>
-            <td>...</td>
-            <td>...</td>
-        </tr>
-        <tr>
-            <td>...</td>
-            <td>...</td>
-            <td>...</td>
-            <td>...</td>
-        </tr>
-    </tbody>
-</table>
+    </ng-template>
+</p-table>
