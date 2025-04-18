@@ -1,6 +1,6 @@
 export default async function sendTextToBackend(textString: string) {
 	try {
-		const response = await fetch("http://localhost:8000/analyse", {
+		const response = await fetch("http://localhost:8000/analyze", {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json"

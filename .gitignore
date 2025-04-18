@@ -1,0 +1,49 @@
+# Node.js dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Angular build artifacts
+dist/
+out-tsc/
+.angular/
+
+# React build artifacts
+build/
+.cache/
+
+# FastAPI specific
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.env
+*.venv
+env/
+venv/
+instance/
+*.db
+*.sqlite3
+
+# IDEs and editors
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# Logs and temporary files
+logs/
+*.log
+*.tmp
+*.swp
+*.bak
+*.orig
+.DS_Store
+Thumbs.db
+app/back/database/__pycache__/database.cpython-313.pyc
+app/back/routes/get_analyze/__pycache__/get_analyze.cpython-313.pyc
+app/back/routes/get_analyze/__pycache__/schemas.cpython-313.pyc
+app/back/routes/get_DBCheck/__pycache__/get_DBCheck.cpython-313.pyc
