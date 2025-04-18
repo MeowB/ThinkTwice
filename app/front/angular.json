@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angular-thinkTwice": {
+    "back": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/angular-think-twice",
+            "outputPath": "dist/front",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -34,12 +34,7 @@
             "styles": [
               "src/styles.sass"
             ],
-            "scripts": [],
-            "server": "src/main.server.ts",
-            "outputMode": "server",
-            "ssr": {
-              "entry": "src/server.ts"
-            }
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -69,10 +64,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "angular-thinkTwice:build:production"
+              "buildTarget": "back:build:production"
             },
             "development": {
-              "buildTarget": "angular-thinkTwice:build:development"
+              "buildTarget": "back:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -103,5 +98,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }
