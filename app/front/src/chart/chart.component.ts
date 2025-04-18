@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { type ChartData } from 'chart.js';
 import { ChartModule } from 'primeng/chart';
+import { DataService } from '../app/services/data.service'; // adjust path if needed
 
 @Component({
   selector: 'app-chart',
@@ -9,13 +10,13 @@ import { ChartModule } from 'primeng/chart';
   templateUrl: './chart.component.html',
   styleUrl: './chart.component.sass'
 })
-export class ChartComponent {
+export class ChartComponent implements OnInit {
   data: ChartData<'doughnut'> = {
-    labels: ['i tox 1', 'i tox 2', 'i tox 3', 'i tox 4'],
+    labels: [],
     datasets: [
       {
-        backgroundColor: ['#008000', '#fff700', '#ff7b00', '#c90000'],
-        data: [120, 82, 58, 15]
+        backgroundColor: ['#fff700', '#ff7b00', '#c90000', '#008000'],
+        data: []
       }
     ]
   };
@@ -28,4 +29,46 @@ export class ChartComponent {
       }
     }
   };
+
+  constructor(private dataService: DataService) {}
+
+  ngOnInit() {
+    this.dataService.getData().subscribe((entries) => {
+      this.prepareChartData(entries);
+    });
+  }
+
+  prepareChartData(entries: any[]) {
+    const levels = ['green', 'yellow', 'orange', 'red'];
+    const colorMap: { [key: string]: string } = {
+      green: '#008000',
+      yellow: '#fff700',
+      orange: '#ff7b00',
+      red: '#c90000'
+    };
+  
+    const counts: { [key: string]: number } = {
+      green: 0,
+      yellow: 0,
+      orange: 0,
+      red: 0
+    };
+  
+    entries.forEach((entry) => {
+      const ti = entry.TI.toLowerCase();
+      if (counts[ti] !== undefined) {
+        counts[ti]++;
+      }
+    });
+  
+    this.data = {
+      labels: levels,
+      datasets: [
+        {
+          backgroundColor: levels.map(level => colorMap[level]),
+          data: levels.map(level => counts[level])
+        }
+      ]
+    };
+  }
 }

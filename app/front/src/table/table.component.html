@@ -1,9 +1,9 @@
 <p-table [value]="datas" [paginator]="true" [rows]="10">
     <ng-template pTemplate="header">
         <tr>
-            <th>Word/Phrase</th>
+            <th pSortableColumn="WP">Word/Phrase<p-sortIcon field="WP"></p-sortIcon></th>
             <th pSortableColumn="TI">Toxicity index<p-sortIcon field="TI"></p-sortIcon></th>
-            <th>URL</th>
+            <th pSortableColumn="URL">URL<p-sortIcon field="URL"></p-sortIcon></th>
             <th pSortableColumn="DATE">Date<p-sortIcon field="DATE"></p-sortIcon></th>
         </tr>
     </ng-template>
