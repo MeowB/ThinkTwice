@@ -1,16 +1,10 @@
 from fastapi import APIRouter,HTTPException,Depends
-from .schemas import Text
+from schema.schemas import Text
 from googleapiclient import discovery
 import os
 from dotenv import load_dotenv, dotenv_values 
 
 router = APIRouter()
-
-
-load_dotenv() 
-
-
-
 
 
 

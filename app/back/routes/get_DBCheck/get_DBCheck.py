@@ -1,8 +1,7 @@
 from fastapi import APIRouter,HTTPException,Depends
-from routes.get_analyze.schemas import Text
+from schema.schemas import Text
 from dotenv import load_dotenv, dotenv_values 
 from typing import Annotated
-from routes.get_analyze.schemas import Text
 from sqlalchemy.orm import Session
 from sqlalchemy import create_engine, Table, select
 from database.database import metadata, get_db, engine
@@ -29,11 +28,11 @@ async def get_DBCheck(recivedObj : Text, db: db_dependency):
     ListOfWords = clean_text.split()
     responseObj = []
 
+
     for word in ListOfWords:
         with engine.connect() as conn:
             query = select(toxicword).where(toxicword.c.Text == word.lower())
             result = conn.execute(query).fetchone()
             if result:
                 responseObj.append(word)
-
     return {"toxic_words": responseObj}

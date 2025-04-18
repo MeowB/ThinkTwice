@@ -63,7 +63,7 @@ Check if one of the words of a given text is in DB
 
 **Parameters:**
 ```json
-{  "text": "you text here"}
+{"text": "you text here"}
 ```
 
 **Response:**
