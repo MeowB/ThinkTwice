@@ -3,11 +3,12 @@ import { RouterOutlet } from '@angular/router';
 import { FooterComponent } from '../footer/footer.component';
 import { DashboardComponent } from '../dashboard/dashboard.component';
 import { HeaderComponent } from '../header/header.component';
-import { ChartComponent } from '../chart/chart.component';
+
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, HeaderComponent, DashboardComponent, FooterComponent, ChartComponent],
+  standalone: true,
+  imports: [RouterOutlet, HeaderComponent, DashboardComponent, FooterComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.sass'
 })

@@ -1,33 +1,21 @@
-import { Component, OnInit } from '@angular/core';
-import { Chart, registerables } from 'chart.js';
-Chart.register(...registerables);
+import { Component } from '@angular/core';
+import { type ChartData } from 'chart.js';
+import { ChartjsComponent } from '@coreui/angular-chartjs';
 
 @Component({
   selector: 'app-chart',
-  imports: [],
   templateUrl: './chart.component.html',
-  styleUrl: './chart.component.sass'
+  standalone: true,
+  imports: [ChartjsComponent]
 })
-export class ChartComponent implements OnInit {
-  public config: any = {
-    type: 'pie',
-    data: {
-      labels: ['Red', 'Blue', 'Yellow'],
-      datasets: [{
-        label: 'My First Dataset',
-        data: [300, 50, 100],
-        backgroundColor: 'blue'
-      },
+export class ChartComponent {
+  data: ChartData = {
+    labels: ['VueJs', 'EmberJs', 'ReactJs', 'Angular', 'NodeJs'],
+    datasets: [
       {
-        label: 'My Second Dataset',
-        data: [30, 80, 300],
-        backgroundColor: 'red'
-      },
-      ],
-    },
+        backgroundColor: ['#8BC7B0', '#FEF5EC', '#775897', '#C2A8EB', '#6E57A5'],
+        data: [40, 20, 80, 10]
+      }
+    ]
   };
-  chart: any;
-  ngOnInit(): void {
-    this.chart = new Chart('myChart', this.config);
-  }
 }
