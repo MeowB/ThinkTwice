@@ -1,4 +1,5 @@
 from pydantic import BaseModel
+from uuid import UUID
 from datetime import date
 
 class Text(BaseModel):
@@ -6,13 +7,14 @@ class Text(BaseModel):
 
 
 class OnSend(BaseModel):
-    id: str
-    index: str
+    user_id: UUID
+    index: float
     url: str
 
 class DailyToxicity(BaseModel):
-
-    user_id: str
-    day: str
+    user_id: UUID
+    day: date
     total_index : int
-    messages_sent: date 
+    messages_sent: int 
+    class Config:
+        orm_mode = True
