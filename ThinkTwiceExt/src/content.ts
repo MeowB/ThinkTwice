@@ -1,8 +1,8 @@
 import getReadableText from './functions/getReadableText'
 // import highlightToxicLines from './functions/highlightToxicLines';
-import mockAnalyze from './functions/mockAnalysis';
+// import mockAnalyze from './functions/mockAnalysis';
 import sendTextToBackend from './functions/sendTextToBackend';
-import debounce from 'lodash/debounce'
+// import debounce from 'lodash/debounce'
 
 
 console.log('ThinkTwice Content Script Loaded');
@@ -36,6 +36,15 @@ function waitForElement(selector: string, callback: Function) {
 // highlight toxic content and query the backend for toxicity level
 waitForElement("article, section, main, p, h1, h2, h3, h4, h5, h6, li, blockquote span",async () => {
 	const readable = getReadableText();
+	// let Words = readable.split(' ').filter((word) => word != '')
+	// let toxicWords = []
+
+	// if(Words.length > 0) {
+	// 	Words.forEach((word) => {
+			
+	// 	})
+	// }
+
 	if (readable.length > 0) {
 		let results = await sendTextToBackend(readable)
 		// highlightToxicLines(results)
@@ -46,25 +55,25 @@ waitForElement("article, section, main, p, h1, h2, h3, h4, h5, h6, li, blockquot
 })
 
 // active field real time monitoring
-document.addEventListener('focusin', (e) => {
-	const el = e.target as HTMLElement
-	console.log('scanning input')
+// document.addEventListener('focusin', (e) => {
+// 	const el = e.target as HTMLElement
+	
+// 	if (el.tagName === 'TEXTAREA' || (el.isContentEditable && !el.getAttribute('data-monitored'))) {
+// 		el.setAttribute('data-monitored', 'true');
+		
+// 		const inputHandler = debounce(async () => {
+// 			const text = (el as HTMLTextAreaElement).value || el.innerText
+// 			console.log('scanning input')
+// 			if (!text.trim()) return
 
-	if (el.tagName === 'TEXTAREA' || (el.isContentEditable && !el.getAttribute('data-monitored'))) {
-		el.setAttribute('data-monitored', 'true');
+// 			const { results } = await mockAnalyze([text])
+// 			const isToxic = results[0].is_toxic
 
-		const inputHandler = debounce(async () => {
-			const text = (el as HTMLTextAreaElement).value || el.innerText
-			if (!text.trim()) return
+// 			if(isToxic) {
+// 				console.log("text is toxic")
+// 			}
+// 		}, 700)
 
-			const { results } = await mockAnalyze([text])
-			const isToxic = results[0].is_toxic
-
-			if(isToxic) {
-				console.log("text is toxic")
-			}
-		}, 700)
-
-		el.addEventListener('input', inputHandler)
-	}
-})
+// 		el.addEventListener('input', inputHandler)
+// 	}
+// })
