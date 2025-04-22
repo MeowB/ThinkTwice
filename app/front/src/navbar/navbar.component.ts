@@ -23,6 +23,5 @@ export class NavbarComponent {
   logout(): void {
     this.authService.logout();
     alert('Fake logout successful');
-    this.router.navigateByUrl('/login');
   }
 }
