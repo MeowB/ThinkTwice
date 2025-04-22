@@ -59,25 +59,25 @@ export class StackComponent implements OnInit {
         {
           type: 'bar',
           label: 'Red',
-          backgroundColor: '#c90000', 
+          backgroundColor: '#ffb3b3', 
           data: redData
         },
         {
           type: 'bar',
           label: 'Yellow',
-          backgroundColor: '#fff700',
+          backgroundColor: '#fff89a',
           data: yellowData
         },
         {
           type: 'bar',
           label: 'Orange',
-          backgroundColor: '#ff7b00',
+          backgroundColor: '#fdc48e',
           data: orangeData
         },
         {
           type: 'bar',
           label: 'Green',
-          backgroundColor: '#008000', 
+          backgroundColor: '#b3e3c2', 
           data: greenData
         }
       ]

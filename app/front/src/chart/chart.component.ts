@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { type ChartData } from 'chart.js';
 import { ChartModule } from 'primeng/chart';
-import { DataService } from '../app/services/data.service'; // adjust path if needed
+import { DataService } from '../app/services/data.service';
 
 @Component({
   selector: 'app-chart',
@@ -15,7 +15,7 @@ export class ChartComponent implements OnInit {
     labels: [],
     datasets: [
       {
-        backgroundColor: ['#fff700', '#ff7b00', '#c90000', '#008000'],
+        backgroundColor: [],
         data: []
       }
     ]
@@ -41,10 +41,10 @@ export class ChartComponent implements OnInit {
   prepareChartData(entries: any[]) {
     const levels = ['green', 'yellow', 'orange', 'red'];
     const colorMap: { [key: string]: string } = {
-      green: '#008000',
-      yellow: '#fff700',
-      orange: '#ff7b00',
-      red: '#c90000'
+      green: '#b3e3c2',
+      yellow: '#fff89a',
+      orange: '#fdc48e',
+      red: '#ffb3b3'
     };
   
     const counts: { [key: string]: number } = {
