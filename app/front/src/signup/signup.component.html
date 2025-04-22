@@ -1,1 +1,24 @@
-<p>Here is the signup component.</p>
+<section class="signup-container">
+    <h2>Create an Account</h2>
+    <p>Join Think Twice and help fight online toxicity</p>
+
+    <form class="signup-form">
+        <label for="name">Name</label>
+        <input id="name" type="text" placeholder="Your name" />
+
+        <label for="email">Email</label>
+        <input id="email" type="email" placeholder="you@example.com" />
+
+        <label for="password">Password</label>
+        <input id="password" type="password" placeholder="Create a password" />
+
+        <label for="confirm-password">Confirm Password</label>
+        <input id="confirm-password" type="password" placeholder="Repeat your password" />
+
+        <button type="submit" class="button-primary">Sign Up</button>
+    </form>
+
+    <p class="form-footer">
+        Already have an account? <a routerLink="/login">Log in</a>
+    </p>
+</section>

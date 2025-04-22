@@ -1,1 +1,21 @@
-<p>Here is the login component!</p>
+<section class="login-container">
+    <h2>Welcome Back</h2>
+    <p>Log in to your Think Twice account</p>
+
+    <form class="login-form">
+        <label for="email">Email</label>
+        <input id="email" type="email" placeholder="you@example.com" />
+
+        <label for="password">Password</label>
+        <input id="password" type="password" placeholder="Enter your password" />
+        
+        <button type="submit" class="button-primary">Log In</button>
+    </form>
+    
+    <br/>
+    <button (click)="testLogin()">Test Login</button>
+
+    <p class="form-footer">
+        Don't have an account? <a routerLink="/signup">Sign up</a>
+    </p>
+</section>
