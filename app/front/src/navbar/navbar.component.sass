@@ -1,27 +1,38 @@
-.navbar-imgdiv img
-    height: 70px
-    width: auto
-    display: block
-  
-.navbar-imgdiv
-    display: flex
-    align-items: center
+.navbar
+  background-color: #fff
+  padding: 1rem
+  display: flex
+  justify-content: space-between
+  align-items: center
 
-.navbar-ul
-    list-style: none
-    display: flex
-    gap: 1rem
-    padding: 0
-    margin: 0
-    align-items: center
-
-.navbar-li
-    font-weight: bold
-
-.navbar-nav
+  .navbar-top
     display: flex
     justify-content: space-between
     align-items: center
     width: 100%
-    padding-top: 10px
-    margin: 0 auto
+
+    .navbar-imgdiv
+      flex: 1
+      display: flex
+      justify-content: flex-start
+
+    .navbar-links
+      display: flex
+      align-items: center
+
+      ul
+        display: flex
+        list-style: none
+        padding: 0
+        margin: 0
+
+      li
+        margin-left: 1rem
+
+      a
+        text-decoration: none
+        color: #333
+        font-size: 1rem
+
+      a:hover
+        color: #007bff

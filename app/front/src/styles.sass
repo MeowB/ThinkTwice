@@ -1,3 +1,4 @@
+// Base layout
 body, html
   margin: 0 auto
   padding: 0
@@ -7,3 +8,108 @@ body, html
   flex-direction: column
   text-align: center
   max-width: 1200px
+
+// Navbar styles
+.navbar-imgdiv img
+  height: 70px
+  width: auto
+  display: block
+
+.navbar-imgdiv
+  display: flex
+  align-items: center
+
+.navbar-ul
+  list-style: none
+  display: flex
+  gap: 1rem
+  padding: 0
+  margin: 0
+  align-items: center
+
+.navbar-li
+  font-weight: bold
+
+.navbar-nav
+  display: flex
+  justify-content: space-between
+  align-items: center
+  width: 100%
+  padding-top: 10px
+  margin: 0 auto
+
+// Layout utility
+.table, .chart
+  margin: 15px
+
+// ----------------------------
+// Theme definitions
+// ----------------------------
+
+// Base Colors from Mascot
+$primary: #bfaee0 // pastel lavender/purple
+$accent: #a9d8b9  // soft green
+
+// Complementary Colors
+$background: #f5f6fa
+$surface: #ffffff
+$text: #2e2e2e
+$muted-text: #6e6e6e
+
+// Status Colors
+$success: #b3e3c2
+$warning: #ffe69a
+$danger: #ffb3b3
+$info: #b3d4ff
+
+// PrimeNG CSS variable overrides
+:root
+  --p-primary-color: #{$primary}
+  --p-accent-color: #{$accent}
+  --p-surface-color: #{$surface}
+  --p-background-color: #{$background}
+  --p-text-color: #{$text}
+  --p-muted-text-color: #{$muted-text}
+  --p-success-color: #{$success}
+  --p-warning-color: #{$warning}
+  --p-danger-color: #{$danger}
+  --p-info-color: #{$info}
+  --p-border-radius: 0.5rem
+
+// Global defaults
+body
+  background-color: var(--p-background-color)
+  color: var(--p-text-color)
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+
+// Reusable card style
+.card
+  background: var(--p-surface-color)
+  padding: 1rem
+  border-radius: var(--p-border-radius)
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05)
+
+// Buttons
+.button-primary
+  background-color: var(--p-primary-color)
+  color: white
+  border: none
+  border-radius: var(--p-border-radius)
+  padding: 0.5rem 1rem
+  cursor: pointer
+  transition: background-color 0.3s ease
+
+  &:hover
+    background-color: darken($primary, 10%)
+
+.button-accent
+  background-color: var(--p-accent-color)
+  color: #2e2e2e
+  border: none
+  border-radius: var(--p-border-radius)
+  padding: 0.5rem 1rem
+  cursor: pointer
+  transition: background-color 0.3s ease
+
+  &:hover
+    background-color: darken($accent, 10%)

@@ -1,2 +1,27 @@
-.table, .chart
-    margin: 15px
+.dashboard
+  display: flex
+  flex-direction: column
+  gap: 2rem
+  padding: 1rem
+  max-width: 100%
+  width: 100%
+
+  h1, h3
+    margin: 0
+    padding-bottom: 0.5rem
+    text-align: left
+
+.chart, .table, .stack
+  background: var(--p-surface-color)
+  padding: 1rem
+  border-radius: var(--p-border-radius)
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05)
+
+@media (min-width: 768px)
+  .dashboard
+    padding: 2rem
+
+@media (min-width: 1024px)
+  .dashboard
+    .chart, .table, .stack
+      max-width: 100%

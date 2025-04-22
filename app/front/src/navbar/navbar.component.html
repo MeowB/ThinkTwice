@@ -1,12 +1,18 @@
-<nav class="navbar-nav">
-    <div class="navbar-imgdiv">
-        <img src="ThinkTwice-icon1.png" alt="ThinkTwice logo">
+<nav class="navbar">
+    <div class="navbar-top">
+        <div class="navbar-imgdiv">
+            <a routerLink="/">
+                <img src="ThinkTwice-icon1.png" alt="ThinkTwice logo" />
+            </a>
+        </div>
+    
+        <div class="navbar-links">
+            <ul>
+                <li><a routerLink="/">Home</a></li>
+                <li><a routerLink="/dashboard">Dashboard</a></li>
+                <li><a routerLink="/signup">Signup</a></li>
+                <li><a routerLink="/login">Login</a></li>
+            </ul>
+        </div>
     </div>
-    <ul class="navbar-ul">
-        <li class="navbar-li" id="navbar-home"><a routerLink="/">Home</a></li>
-        <li class="navbar-li" id="navbar-dashboard"><a routerLink="/dashboard">Dashboard</a></li>
-        <li class="navbar-li" id="navbar-signup"><a routerLink="/signup">Signup</a></li>
-        <li class="navbar-li" id="navbar-login"><a routerLink="/login">Login</a></li>
-        <li class="navbar-li" id="navbar-logout"><a routerLink="/login">Logout</a></li>
-    </ul>
 </nav>
