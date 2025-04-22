@@ -1,66 +1,67 @@
+@use '../styles' as *
+@use 'sass:color'
+
 .home-container
-  padding: 1rem
+  padding: 2rem 1rem
+  max-width: 1200px
+  margin: 0 auto
   display: flex
   flex-direction: column
   align-items: center
+  gap: 2rem
+
+.home-header
   text-align: center
-  max-width: 900px
-  margin: 0 auto
-  background-color: var(--p-background-color)
+  h1
+    font-size: 2rem
+    color: $primary
+    margin-bottom: 0.5rem
+  p
+    font-size: 1rem
+    color: $muted-text
 
-  .home-header
-    margin-bottom: 1.5rem
+.home-intro
+  text-align: center
+  h2
+    font-size: 1.5rem
+    color: $text
+    margin-bottom: 0.5rem
+  p
+    font-size: 1rem
+    color: $text
+    line-height: 1.6
 
-    h1
-      font-size: 2rem
-      color: var(--p-primary-color)
-
-    p
-      font-size: 1rem
-      color: var(--p-muted-text-color)
-
-  .home-intro, .home-features
-    margin-bottom: 2rem
-
-    h2
-      font-size: 1.3rem
-      margin-bottom: 0.5rem
-      color: var(--p-text-color)
-
-    p
-      font-size: 1rem
-      color: var(--p-text-color)
-      line-height: 1.5
-
-  .home-features ul
+.home-features
+  text-align: center
+  h2
+    font-size: 1.5rem
+    color: $text
+    margin-bottom: 0.5rem
+  ul
     list-style: none
     padding: 0
-
+    display: flex
+    flex-direction: column
+    gap: 0.75rem
     li
-      background: var(--p-surface-color)
-      margin-bottom: 0.5rem
-      padding: 0.75rem
-      border-radius: var(--p-border-radius)
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05)
-      text-align: left
-
-  .home-cta
-    margin-top: 2rem
-
-    p
-      font-size: 1.1rem
-      font-weight: bold
-      margin-bottom: 1rem
-
-    .button-primary
       font-size: 1rem
+      color: $text
 
-@media (min-width: 768px)
-  .home-header h1
-    font-size: 2.5rem
-
-  .home-intro h2, .home-features h2
-    font-size: 1.6rem
-
-  .home-container
-    padding: 2rem
+.home-cta
+  text-align: center
+  p
+    font-size: 1rem
+    color: $text
+    margin-bottom: 1rem
+  .button-primary
+    display: inline-block
+    padding: 0.75rem 1.5rem
+    background-color: $primary
+    color: white
+    font-weight: bold
+    border: none
+    border-radius: 0.5rem
+    cursor: pointer
+    transition: background-color 0.3s ease
+    &:hover
+      background-color: color.adjust($primary, $lightness: -10%)

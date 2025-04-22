@@ -14,11 +14,8 @@ export class LoginComponent {
   constructor(private router: Router, private authService: AuthService) {}
 
   testLogin(): void {
-    // Call the AuthService login method to update the login state
     this.authService.login();
     alert('Fake login successful');
-    
-    // Redirect the user to the dashboard
     this.router.navigateByUrl('/dashboard');
   }
 }

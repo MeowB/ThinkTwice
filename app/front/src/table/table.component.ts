@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TableModule } from 'primeng/table';
-import { DataService } from '../app/services/data.service'; // adjust path if needed
+import { DataService } from '../app/services/data.service';
 
 @Component({
   selector: 'app-table',

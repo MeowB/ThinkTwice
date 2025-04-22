@@ -1,0 +1,45 @@
+@use '../styles' as *
+
+.stack-container
+  padding: 2rem
+  background-color: $surface
+  border-radius: 0.5rem
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1)
+
+  .p-chart
+    max-width: 100%
+    margin: 0 auto
+    display: block
+
+.stack-title
+  font-size: 1.5rem
+  font-weight: bold
+  color: $text
+  margin-bottom: 1rem
+
+@include respond-to(xs)
+  .stack-container
+    padding: 1rem
+
+  .stack-title
+    font-size: 1.2rem
+
+@include respond-to(sm)
+  .stack-container
+    padding: 1.5rem
+
+  .stack-title
+    font-size: 1.4rem
+
+@include respond-to(md)
+  .stack-container
+    padding: 2rem
+    max-width: 90%
+
+  .stack-title
+    font-size: 1.5rem
+
+.p-chart
+  height: 250px
+  @include respond-to(md)
+    height: 300px
