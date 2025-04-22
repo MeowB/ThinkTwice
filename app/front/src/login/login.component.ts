@@ -1,12 +1,12 @@
-// login.component.ts
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { AuthService } from '../app/auth.service';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [],
+  imports: [RouterModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.sass'
 })

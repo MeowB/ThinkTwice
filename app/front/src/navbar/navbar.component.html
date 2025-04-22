@@ -9,9 +9,12 @@
         <div class="navbar-links">
             <ul>
                 <li><a routerLink="/">Home</a></li>
-                <li><a routerLink="/dashboard">Dashboard</a></li>
-                <li><a routerLink="/signup">Signup</a></li>
-                <li><a routerLink="/login">Login</a></li>
+
+                <li *ngIf="isLoggedIn"><a routerLink="/dashboard">Dashboard</a></li>
+                <li *ngIf="!isLoggedIn"><a routerLink="/signup">Signup</a></li>
+                <li *ngIf="!isLoggedIn"><a routerLink="/login">Login</a></li>
+        
+                <li *ngIf="isLoggedIn" (click)="logout()">Logout</li>
             </ul>
         </div>
     </div>
