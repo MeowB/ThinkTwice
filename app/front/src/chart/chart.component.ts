@@ -39,19 +39,19 @@ export class ChartComponent implements OnInit {
   }
 
   prepareChartData(entries: any[]) {
-    const levels = ['green', 'yellow', 'orange', 'red'];
+    const levels = ['safe', 'alert', 'warning', 'danger'];
     const colorMap: { [key: string]: string } = {
-      green: '#b3e3c2',
-      yellow: '#fff89a',
-      orange: '#fdc48e',
-      red: '#ffb3b3'
+      safe: '#b3e3c2',
+      alert: '#fff89a',
+      warning: '#fdc48e',
+      danger: '#ffb3b3'
     };
   
     const counts: { [key: string]: number } = {
-      green: 0,
-      yellow: 0,
-      orange: 0,
-      red: 0
+      safe: 0,
+      alert: 0,
+      warning: 0,
+      danger: 0
     };
   
     entries.forEach((entry) => {

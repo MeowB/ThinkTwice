@@ -31,54 +31,54 @@ export class StackComponent implements OnInit {
   }
 
   processData() {
-    const urlCount: { [key: string]: { red: number, yellow: number, orange: number, green: number } } = {};
+    const urlCount: { [key: string]: { danger: number, warning: number, alert: number, safe: number } } = {};
 
     this.jsonData.forEach(item => {
       const url = item.URL;
       const ti = item.TI;
 
       if (!urlCount[url]) {
-        urlCount[url] = { red: 0, yellow: 0, orange: 0, green: 0 };
+        urlCount[url] = { danger: 0, warning: 0, alert: 0, safe: 0 };
       }
 
-      if (ti === 'red') urlCount[url].red++;
-      if (ti === 'yellow') urlCount[url].yellow++;
-      if (ti === 'orange') urlCount[url].orange++;
-      if (ti === 'green') urlCount[url].green++;
+      if (ti === 'danger') urlCount[url].danger++;
+      if (ti === 'warning') urlCount[url].warning++;
+      if (ti === 'alert') urlCount[url].alert++;
+      if (ti === 'safe') urlCount[url].safe++;
     });
 
     const labels = Object.keys(urlCount); 
-    const redData = labels.map(url => urlCount[url].red);
-    const yellowData = labels.map(url => urlCount[url].yellow);
-    const orangeData = labels.map(url => urlCount[url].orange);
-    const greenData = labels.map(url => urlCount[url].green);
+    const dangerData = labels.map(url => urlCount[url].danger);
+    const warningData = labels.map(url => urlCount[url].warning);
+    const alertData = labels.map(url => urlCount[url].alert);
+    const safeData = labels.map(url => urlCount[url].safe);
 
     this.data = {
       labels: labels,
       datasets: [
         {
           type: 'bar',
-          label: 'Red',
+          label: 'Danger',
           backgroundColor: '#ffb3b3', 
-          data: redData
+          data: dangerData
         },
         {
           type: 'bar',
-          label: 'Yellow',
-          backgroundColor: '#fff89a',
-          data: yellowData
-        },
-        {
-          type: 'bar',
-          label: 'Orange',
+          label: 'Warning',
           backgroundColor: '#fdc48e',
-          data: orangeData
+          data: warningData
         },
         {
           type: 'bar',
-          label: 'Green',
+          label: 'Alert',
+          backgroundColor: '#fff89a',
+          data: alertData
+        },
+        {
+          type: 'bar',
+          label: 'Safe',
           backgroundColor: '#b3e3c2', 
-          data: greenData
+          data: safeData
         }
       ]
     };
