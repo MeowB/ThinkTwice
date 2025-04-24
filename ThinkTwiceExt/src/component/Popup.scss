@@ -1,8 +1,49 @@
 .popup {
+
+	.pastille {
+		background-color: #bfaee0;
+		width: 16px;
+		height: 16px;
+	}
+
+	.cadre {
+		display: flex;
+		justify-content: space-between;
+	}
+
 	.bottom {
 		display: flex;
-		justify-content: end;
+		justify-content: space-between;
 		margin-top: 25px;
 		width: 320px;
+		align-items: flex-end;
+
+		a {
+			background-color: #bfaee0;
+			color: white;
+			padding: 10px;
+		}
 	}
+
+	.content {
+		margin: 15px;
+		padding: 10px 0;
+		border-radius: 8px;
+	}
+}
+
+.green {
+	background-color: #b3e3c2;
+}
+
+.yellow {
+	background-color: #fff89a;
+}
+
+.orange {
+	background-color: #fdc48e;
+}
+
+.red {
+	background-color: #ffb3b3;
 }

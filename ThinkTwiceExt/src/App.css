@@ -1,6 +1,7 @@
-#root {
+#extRoot {
   padding: 1rem;
   text-align: center;
+  background-color: #f5f6fa;
 }
 
 /* .toxic-word {
