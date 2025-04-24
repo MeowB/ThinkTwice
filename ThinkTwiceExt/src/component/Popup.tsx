@@ -114,7 +114,7 @@ const Popup = () => {
 			</div>
 			<div className="bottom">
 				<div className="pastille"></div>
-				<a href="http://localhost:4200/dashboard" target="_blank" rel="noopener noreferrer">Dashboard</a>
+				<a href="http://localhost:4200/home" target="_blank" rel="noopener noreferrer">Dashboard</a>
 			</div>
 		</div>
 	)
